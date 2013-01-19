@@ -1,0 +1,5 @@
+### プロンプトの設定
+# virtualenvwrapperでプロンプトが変わってしまうので、
+# postactivateでこの設定ファイルを呼び出して上書きする。
+PROMPT="[%n]%# "
+RPROMPT="[%~] "

@@ -1,0 +1,58 @@
+# 言語環境
+export LANG=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
+
+# キーバインドをEmacsにする
+bindkey -e
+
+# 補完の設定
+autoload -U compinit
+compinit
+
+# 色の設定
+autoload -U colors
+colors
+
+# 補完時に大文字、小文字を区別しない
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 補完機能のグループ化の設定
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
+
+# 補完候補に色を付ける
+zstyle ':completion:*:default' list-colors ""
+
+# プロンプトの設定ファイルを読み込む
+source .zsh_prompt
+
+# Perlのロケールの警告を表示させないようにする
+export PERL_BADLANG=0
+
+# ページャの設定
+if type lv > /dev/null 2>&1 ; then
+    export PAGER="lv"
+fi
+
+# エイリアス
+alias ls="ls -GF"
+alias rr="rm -rf"
+
+# 重複したPATHは登録しない
+typeset -U PATH
+
+# PATHの設定
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# RVMの設定
+if [ -s $HOME/.rvm/scripts/rvm ] ; then
+	source $HOME/.rvm/scripts/rvm
+fi
+
+### virtualenvの設定
+# 環境が存在するパスを設定
+WORKON_HOME=$HOME/.virtualenvs
+# pipでパッケージを仮想環境にインストールする
+export PIP_RESPECT_VIRTUALENV=true
+# virtualenvwrapperの読み込み
+source /usr/local/bin/virtualenvwrapper.sh
