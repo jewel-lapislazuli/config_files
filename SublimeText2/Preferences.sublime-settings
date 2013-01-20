@@ -1,0 +1,27 @@
+{
+    // テーマの設定
+    "color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+    // フォントの設定
+    "font_face": "VL PGothic Regular",
+    "font_size": 11.0,
+    // タブ幅
+    "tab_size": 4,
+    // 保存時に末尾の空白を除去
+    "trim_trailing_white_space_on_save": true,
+    // タブをスペースに変換
+    "translate_tabs_to_spaces": true,
+    // tab、backspaceキーでタブ幅分のスペースを入力、削除
+    "use_tab_stops": true,
+    // 現在の行をハイライト表示
+    "highlight_line": true,
+    // タブ、スペースなどの不可視文字を視覚化
+    // "draw_white_space": "all"
+    // 変更したファイルはタブ名をハイライト
+    "highlight_modified_tabs": true,
+    // 折り返しを強制
+    "word_wrap": true,
+    // 折り返しの文字数
+    "wrap_width": 80,
+    // ルーラの表示
+    "rulers": 80
+}
