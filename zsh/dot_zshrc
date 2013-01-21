@@ -24,7 +24,7 @@ zstyle ':completion:*' group-name ''
 zstyle ':completion:*:default' list-colors ""
 
 # プロンプトの設定ファイルを読み込む
-source .zsh_prompt
+source $HOME/.zsh_prompt
 
 # Perlのロケールの警告を表示させないようにする
 export PERL_BADLANG=0
