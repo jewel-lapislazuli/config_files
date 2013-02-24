@@ -35,8 +35,19 @@ if type lv > /dev/null 2>&1 ; then
 fi
 
 # エイリアス
-alias ls="ls -GF"
+case ${OSTYPE} in
+	darwin*)
+	alias ls="ls -GF"
+	;;
+	linux*)
+	alias ls="ls --color=auto"
+	;;
+esac
+
+alias la="ls -a"
+alias ll="ls -l"
 alias rr="rm -rf"
+alias emacs="emacs -nw"
 
 # 重複したPATHは登録しない
 typeset -U PATH
