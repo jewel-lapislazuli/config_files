@@ -39,6 +39,13 @@
 (setq completion-ignore-case t)
 (setq read-file-name-completion-ignore-case t)
 
+; 括弧の補完
+(global-set-key (kbd "(") 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "{") 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "[") 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
+(setq skeleton-pair 1)
+
 ; 色の設定
 (set-face-foreground 'font-lock-comment-face "SlateGray")
 (set-face-foreground 'font-lock-string-face "SpringGreen3")
