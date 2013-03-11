@@ -55,10 +55,11 @@ typeset -U PATH
 # PATHの設定
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# RVMの設定
-if [ -s $HOME/.rvm/scripts/rvm ] ; then
-	source $HOME/.rvm/scripts/rvm
-fi
+### rbenvの設定
+# 初期化
+eval "$(rbenv init -)"
+# PATHの設定
+PATH=$PATH:~/.rbenv/shims
 
 ### virtualenvの設定
 # 環境が存在するパスを設定
