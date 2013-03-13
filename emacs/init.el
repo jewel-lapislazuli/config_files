@@ -1,5 +1,5 @@
 ; load-pathの追加
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 ; 言語を日本語にする
 (set-language-environment 'Japanese)
@@ -33,6 +33,18 @@
 
 ; バックアップファイルを作らない
 (setq backup-inhibited t)
+
+; 同名ファイルを開いたときにディレクトリ名を表示する
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
+; ファイル名の先頭に #! がある場合は実行権を付与する
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
+; スペルチェックを行う
+(setq-default flyspell-mode t)
+(setq ispell-dictionary "american")
 
 ;;; 補完
 ; 補完時に大文字、小文字を区別しない
