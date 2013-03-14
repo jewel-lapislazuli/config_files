@@ -1,5 +1,5 @@
 ; load-pathの追加
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path "~/.emacs.d/config")
 
 ; 言語を日本語にする
 (set-language-environment 'Japanese)
@@ -72,16 +72,5 @@
 (define-auto-insert "\\.py$" "python-templete.py")
 (define-auto-insert "\\.rb$" "ruby-templete.rb")
 
-; nxml-modeの設定
-(setq auto-mode-alist
-	(cons '("\\.\\(xml\\|xsl\\|rng\\|html\\|xhtml\\)\\'" . nxml-mode)
-	auto-mode-alist))
-
-(add-hook 'nxml-mode-hook
-	(lambda ()
-	(setq auto-fill-mode -1)
-	(setq nxml-slash-auto-complete-flag t)
-	(setq nxml-child-indent 2)
-	(setq nxml-attribute-indent 4)
-	(setq indent-tabs-mode t)
-	(setq tab-width 2)))
+; el-get関連のパッケージ設定の読み込み
+(load "packages")
