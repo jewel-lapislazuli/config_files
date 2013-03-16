@@ -17,3 +17,17 @@
 
 ; 補完推測機能用ファイルのパス
 (setq ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat")
+
+;; Anythingの設定
+(require 'anything)
+(require 'anything-config)
+
+; anything-c-adaptive-historyのパス変更
+(setq anything-c-adaptive-history-file
+          "~/.emacs.d/cache/anything-c-adaptive-history")
+
+; AnythingをCtrl+lで呼び出す
+(global-set-key "\C-l" 'anything)
+
+; EmacsのコマンドをAnything経由で呼び出せるようにする
+(add-to-list 'anything-sources 'anything-c-source-emacs-commands)

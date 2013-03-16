@@ -72,5 +72,5 @@
 (define-auto-insert "\\.py$" "python-templete.py")
 (define-auto-insert "\\.rb$" "ruby-templete.rb")
 
-; el-get関連のパッケージ設定の読み込み
+; 追加パッケージに関する設定を読み込み
 (load "packages")
