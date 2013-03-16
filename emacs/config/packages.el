@@ -18,16 +18,18 @@
 ; 補完推測機能用ファイルのパス
 (setq ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat")
 
-;; Anythingの設定
-(require 'anything)
-(require 'anything-config)
+;; Emacs-Helmの設定
+(require 'helm-config)
 
-; anything-c-adaptive-historyのパス変更
-(setq anything-c-adaptive-history-file
-          "~/.emacs.d/cache/anything-c-adaptive-history")
+; Helm用キーバインド
+(global-set-key "\C-c\C-h" 'helm-mini)
+(global-set-key "\C-c\C-c" 'helm-M-x)
 
-; AnythingをCtrl+lで呼び出す
-(global-set-key "\C-l" 'anything)
+; Helmでコマンド補完をできるようにする
+(helm-mode 1)
 
-; EmacsのコマンドをAnything経由で呼び出せるようにする
-(add-to-list 'anything-sources 'anything-c-source-emacs-commands)
+; Helm中にCtrl-hを使えるようにする
+(eval-after-load 'helm
+  '(progn
+     (define-key helm-map (kbd "C-h") 'delete-backward-char)
+     ))
