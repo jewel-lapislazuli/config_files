@@ -25,6 +25,13 @@
 (global-set-key (kbd "C-c C-h") 'helm-mini)
 (global-set-key (kbd "C-c C-c") 'helm-M-x)
 
+; C-c C-cがPython-modeのキーバインドと重複しているので対処
+(add-hook 'python-mode-hook
+    (lambda ()
+        (define-key python-mode-map (kbd "C-c C-c") 'nil)
+        ))
+
+
 ; Helmでコマンド補完をできるようにする
 (helm-mode 1)
 
