@@ -8,7 +8,7 @@
 (prefer-coding-system 'utf-8)
 
 ; Ctrl-hをバックスペースにする
-(global-set-key "\C-h" 'backward-delete-char)
+(global-set-key (kbd "C-h") 'backward-delete-char)
 
 ; Ctrl-kで行全体を削除
 (setq kill-whole-line t)

@@ -12,8 +12,8 @@
 
 ; C-n,C-pで補完候補を選択できるようにする
 (setq ac-use-menu-map t)
-(define-key ac-menu-map "\C-n" 'ac-next)
-(define-key ac-menu-map "\C-p" 'ac-previous)
+(define-key ac-menu-map (kbd "C-n") 'ac-next)
+(define-key ac-menu-map (kbd "C-p") 'ac-previous)
 
 ; 補完推測機能用ファイルのパス
 (setq ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat")
@@ -22,8 +22,8 @@
 (require 'helm-config)
 
 ; Helm用キーバインド
-(global-set-key "\C-c\C-h" 'helm-mini)
-(global-set-key "\C-c\C-c" 'helm-M-x)
+(global-set-key (kbd "C-c C-h") 'helm-mini)
+(global-set-key (kbd "C-c C-c") 'helm-M-x)
 
 ; Helmでコマンド補完をできるようにする
 (helm-mode 1)
