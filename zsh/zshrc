@@ -20,7 +20,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*' group-name ''
 # 補完候補に色を付ける
-zstyle ':completion:*:default' list-colors ""
+zstyle ':completion:*:default' list-colors '' 
 
 
 ## 履歴関連の設定
