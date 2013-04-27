@@ -25,7 +25,7 @@
 (global-set-key (kbd "C-c C-h") 'helm-mini)
 (global-set-key (kbd "C-c C-c") 'helm-M-x)
 
-; C-c C-cがPython-modeのキーバインドと重複しているので対処
+; C-c C-cがpython-modeのキーバインドと重複しているので対処
 (add-hook 'python-mode-hook
     (lambda ()
         (define-key python-mode-map (kbd "C-c C-c") 'nil)
@@ -40,3 +40,10 @@
   '(progn
      (define-key helm-map (kbd "C-h") 'delete-backward-char)
      ))
+
+; Helmのファイルパス自動補完機能を無効にする
+(custom-set-variables '(helm-ff-auto-update-initial-value nil))
+; C-hでバックスペースと同じように文字を削除  
+(define-key helm-c-read-file-map (kbd "C-h") 'delete-backward-char)
+; TABで任意補完。選択肢が出てきたらC-nやC-pで上下移動してから決定することも可能
+(define-key helm-c-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
