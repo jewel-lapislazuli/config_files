@@ -20,8 +20,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*' group-name ''
 # 補完候補に色を付ける
-zstyle ':completion:*:default' list-colors '' 
-
+zstyle ':completion:*:default' list-colors ""
 
 ## 履歴関連の設定
 # メモリ上に保持する履歴の数
@@ -60,6 +59,7 @@ esac
 # 種々の設定
 alias la="ls -a"
 alias ll="ls -l"
+alias rm="rm -i"
 alias rr="rm -rf"
 alias emacs="emacs -nw"
 
@@ -86,16 +86,14 @@ PATH=/usr/local/bin:/usr/local/sbin:$PATH
 # Perlのロケールの警告を表示させないようにする
 export PERL_BADLANG=0
 
-# rbenvの設定
+## rbenvの設定
 # 初期化
 eval "$(rbenv init -)"
 # PATHの設定
 PATH=$PATH:~/.rbenv/shims
 
-## virtualenvの設定
-# 環境が存在するパスを設定
-WORKON_HOME=$HOME/.virtualenvs
-# pipでパッケージを仮想環境にインストールする
-export PIP_RESPECT_VIRTUALENV=true
-# virtualenvwrapperの読み込み
-source /usr/local/bin/virtualenvwrapper.sh
+## pyenvの設定
+# 初期化
+eval "$(pyenv init -)"
+# PATHの設定
+export PATH=$HOME/.pyenv/bin:$PATH
