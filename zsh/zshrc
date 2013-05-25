@@ -98,3 +98,10 @@ eval "$(rbenv init -)"
 PATH=$HOME/.pyenv/bin:$PATH
 # 初期化
 eval "$(pyenv init -)"
+
+## 個別設定
+# 個別設定ファイル(.zsh_local)があれば読み込む
+if [ -e $HOME/.zsh_local ]; then
+	source $HOME/.zsh_local
+fi
+	
