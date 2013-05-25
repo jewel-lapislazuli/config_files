@@ -37,8 +37,9 @@ setopt extended_history
 setopt share_history
 
 
-# プロンプトの設定ファイルを読み込む
-source $HOME/.zsh_prompt
+# プロンプトの設定
+PROMPT="[%n]%# "
+RPROMPT="[%~] "
 
 # ページャの設定
 if type lv > /dev/null 2>&1 ; then
