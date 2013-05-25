@@ -87,13 +87,13 @@ PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PERL_BADLANG=0
 
 ## rbenvの設定
+# PATHの設定
+PATH=$HOME/.rbenv/bin:$PATH
 # 初期化
 eval "$(rbenv init -)"
-# PATHの設定
-PATH=$PATH:~/.rbenv/shims
 
 ## pyenvの設定
+# PATHの設定
+PATH=$HOME/.pyenv/bin:$PATH
 # 初期化
 eval "$(pyenv init -)"
-# PATHの設定
-export PATH=$HOME/.pyenv/bin:$PATH
