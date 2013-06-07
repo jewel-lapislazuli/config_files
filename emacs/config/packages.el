@@ -4,6 +4,7 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+
 ;; Auto-complateの設定
 (require 'auto-complete)
 (require 'auto-complete-config)
@@ -18,12 +19,14 @@
 ; 補完推測機能用ファイルのパス
 (setq ac-comphist-file "~/.emacs.d/cache/ac-comphist.dat")
 
+
 ;; Emacs-Helmの設定
 (require 'helm-config)
 
 ; Helm用キーバインド
 (global-set-key (kbd "C-c C-h") 'helm-mini)
 (global-set-key (kbd "C-c C-c") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ; C-c C-cがpython-modeのキーバインドと重複しているので対処
 (add-hook 'python-mode-hook
