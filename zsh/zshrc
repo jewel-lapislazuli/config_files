@@ -1,3 +1,4 @@
+## zsh環境設定
 # 言語環境
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
@@ -8,6 +9,21 @@ bindkey -e
 # 色の設定
 autoload -U colors
 colors
+
+# 重複したPATHは登録しない
+typeset -U PATH
+
+# PATHの設定
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# プロンプトの設定
+PROMPT="[%n]%# "
+RPROMPT="[%~] "
+
+# ページャの設定
+if type lv > /dev/null 2>&1 ; then
+    export PAGER="lv"
+fi
 
 
 ## 補完関連の設定
@@ -60,9 +76,17 @@ esac
 # 種々の設定
 alias la="ls -a"
 alias ll="ls -l"
-alias rm="rm -i"
 alias rr="rm -rf"
 alias emacs="emacs -nw"
+
+# ^ で cd .. する
+function cdup(){
+	echo
+	cd ..
+	zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
 
 
 ## grepの設定
@@ -74,13 +98,6 @@ GREP_OPTIONS="-n $GREP_OPTIONS"
 GREP_OPTIONS="--binary-files=without-match $GREP_OPTIONS"
 # マッチした文字に色をつける
 GREP_OPTIONS="--color=auto $GREP_OPTIONS"
-
-
-# 重複したPATHは登録しない
-typeset -U PATH
-
-# PATHの設定
-PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 
 ## プログラミング言語関連の設定
@@ -104,4 +121,3 @@ eval "$(pyenv init -)"
 if [ -e $HOME/.zsh_local ]; then
 	source $HOME/.zsh_local
 fi
-	
