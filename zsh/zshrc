@@ -49,6 +49,8 @@ zstyle ':completion:*' format '%B%d%b'
 zstyle ':completion:*' group-name ''
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ""
+# 補完候補を選択できるようにする。補完結果が1つだけの場合はすぐに補完する。
+zstyle ':completion:*:default' menu select=2
 
 
 ## 履歴関連の設定
@@ -64,12 +66,12 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 # コマンドを実行した時間と予想実行時間を記録
 setopt extended_history
+# 履歴の実行前に編集できるようにする
+setopt hist_verify
 # zsh間で履歴を共有
 setopt share_history
-# cdで移動したディレクトリを記憶しておき、cd [TAB]で補完
-setopt auto_pushd
-# auto_pushdで重複したエントリは記録しない
-setopt pushd_ignore_dups
+# 履歴をHISTFILEにすぐ書き込む
+setopt inc_append_history
 
 
 ## エイリアス関連の設定
