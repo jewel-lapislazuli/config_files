@@ -26,6 +26,17 @@ if type lv > /dev/null 2>&1 ; then
 fi
 
 
+## cdrの設定(zaw-cdrとの連携用)
+# 初期化
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+# 移動したディレクトリの履歴ファイルの保存先
+zstyle ':chpwd:*' recent-dirs-file $HOME/.zsh/chpwd-recent-dirs
+
+
 ## 補完関連の設定
 # zshの補完機能を有効にする
 autoload -U compinit
@@ -114,6 +125,18 @@ eval "$(rbenv init -)"
 PATH=$HOME/.pyenv/bin:$PATH
 # 初期化
 eval "$(pyenv init -)"
+
+
+## zawの設定
+# 初期化
+source $HOME/.zsh/zaw/zaw.zsh
+# 大文字・小文字を区別せずにフィルタリングする
+zstyle ':filter-select' case-insensitive yes
+# Ctrl-r でzaw-historyを呼び出す
+bindkey '^r' zaw-history
+# Ctrl-@ でzaw-cdrを呼び出す
+bindkey '^@' zaw-cdr
+
 
 ## 個別設定
 # 個別設定ファイル(.zsh_local)があれば読み込む
