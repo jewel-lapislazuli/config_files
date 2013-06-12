@@ -29,7 +29,8 @@ fi
 ## 補完関連の設定
 # zshの補完機能を有効にする
 autoload -U compinit
-compinit
+# zcompdumpの出力先を変更
+compinit -d $HOME/.zsh/zcompdump
 # 補完時に大文字、小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # 補完機能のグループ化の設定
@@ -41,7 +42,7 @@ zstyle ':completion:*:default' list-colors ""
 
 ## 履歴関連の設定
 # 履歴ファイルの保存先
-export HISTFILE=$HOME/.zsh_history
+export HISTFILE=$HOME/.zsh/zsh_history
 # メモリ上に保持する履歴の数
 export HISTSIZE=1000
 # 履歴ファイルに保存される履歴の数
