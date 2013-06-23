@@ -91,14 +91,14 @@ alias ll="ls -l"
 alias rr="rm -rf"
 alias emacs="emacs -nw"
 
-# ^ で cd .. する
+# Ctrl-^ で cd .. する
 function cdup(){
 	echo
 	cd ..
 	zle reset-prompt
 }
 zle -N cdup
-bindkey '\^' cdup
+bindkey '^\^' cdup
 
 
 ## grepの設定
@@ -118,7 +118,14 @@ export PERL_BADLANG=0
 
 ## rbenvの設定
 # PATHの設定
-PATH=$HOME/.rbenv/bin:$PATH
+case ${OSTYPE} in
+	darwin*)
+	PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
+	;;
+	linux*)
+	PATH=$HOME/.rbenv/bin:$PATH
+	;;
+esac
 # 初期化
 eval "$(rbenv init -)"
 
