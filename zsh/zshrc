@@ -134,14 +134,17 @@ case ${OSTYPE} in
 	;;
 esac
 # 初期化
-eval "$(rbenv init -)"
+if [ -e $HOME/.rbenv ]; then
+	eval "$(rbenv init -)"
+fi
 
 ## pyenvの設定
 # PATHの設定
 PATH=$HOME/.pyenv/bin:$PATH
 # 初期化
-eval "$(pyenv init -)"
-
+if [ -e $HOME/.pyenv ]; then
+	eval "$(pyenv init -)"
+fi
 
 ## zawの設定
 # 初期化
