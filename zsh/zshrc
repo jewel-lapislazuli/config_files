@@ -148,14 +148,15 @@ fi
 
 ## zawの設定
 # 初期化
-source $ZSH_CONFIG_DIR/zaw/zaw.zsh
-# 大文字・小文字を区別せずにフィルタリングする
-zstyle ':filter-select' case-insensitive yes
-# Ctrl-r でzaw-historyを呼び出す
-bindkey '^r' zaw-history
-# Ctrl-@ でzaw-cdrを呼び出す
-bindkey '^@' zaw-cdr
-
+if [ -e $ZSH_CONFIG_DIR/zaw ]; then
+	source $ZSH_CONFIG_DIR/zaw/zaw.zsh
+	# 大文字・小文字を区別せずにフィルタリングする
+	zstyle ':filter-select' case-insensitive yes
+	# Ctrl-r でzaw-historyを呼び出す
+	bindkey '^r' zaw-history
+	# Ctrl-@ でzaw-cdrを呼び出す
+	bindkey '^@' zaw-cdr
+fi
 
 ## 個別設定
 # 個別設定ファイル(.zsh_local)があれば読み込む
