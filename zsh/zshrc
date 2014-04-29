@@ -41,7 +41,7 @@ zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 # 移動したディレクトリの履歴ファイルの保存先
-zstyle ':chpwd:*' recent-dirs-file $HOME/.zsh/chpwd-recent-dirs
+zstyle ':chpwd:*' recent-dirs-file $ZSH_CONFIG_DIR/chpwd-recent-dirs
 
 
 ## 補完関連の設定
