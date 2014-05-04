@@ -146,6 +146,12 @@ if [ -e $HOME/.pyenv ]; then
 	eval "$(pyenv init -)"
 fi
 
+## Caskの設定
+# PATHへの追加
+if [ -e $HOME/.cask ]; then
+	PATH=$HOME/.cask/bin:$PATH
+fi
+
 ## zawの設定
 # 初期化
 if [ -e $ZSH_CONFIG_DIR/zaw ]; then
