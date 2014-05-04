@@ -1,6 +1,10 @@
 ; load-pathの追加
 (add-to-list 'load-path "~/.emacs.d/config")
 
+; Caskの設定
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ; 言語を日本語にする
 (set-language-environment 'Japanese)
 
@@ -56,7 +60,7 @@
 (global-set-key (kbd "{") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "[") 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
-(global-set-key (kbd "'") 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "\'") 'skeleton-pair-insert-maybe)
 (setq skeleton-pair 1)
 
 ; 色の設定
@@ -66,6 +70,7 @@
 (set-face-foreground 'font-lock-function-name-face "khaki1")
 (set-face-foreground 'font-lock-variable-name-face "yellow")
 (set-face-foreground 'font-lock-builtin-face "SteelBlue2")
+(set-face-foreground 'font-lock-constant-face "SteelBlue2")
 
 ; テンプレートの挿入
 (auto-insert-mode)
@@ -75,3 +80,4 @@
 
 ; 追加パッケージに関する設定を読み込み
 (load "packages")
+
