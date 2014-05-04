@@ -124,25 +124,16 @@ GREP_OPTIONS="--color=auto $GREP_OPTIONS"
 export PERL_BADLANG=0
 
 ## rbenvの設定
-# PATHの設定
-case ${OSTYPE} in
-	darwin*)
-	PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
-	;;
-	linux*)
-	PATH=$HOME/.rbenv/bin:$PATH
-	;;
-esac
 # 初期化
 if [ -e $HOME/.rbenv ]; then
+	PATH=$HOME/.rbenv/bin:$PATH
 	eval "$(rbenv init -)"
 fi
 
 ## pyenvの設定
-# PATHの設定
-PATH=$HOME/.pyenv/bin:$PATH
 # 初期化
 if [ -e $HOME/.pyenv ]; then
+	PATH=$HOME/.pyenv/bin:$PATH
 	eval "$(pyenv init -)"
 fi
 
