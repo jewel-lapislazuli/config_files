@@ -1,9 +1,15 @@
 ## zsh環境設定
 # zsh用ディレクトリの存在チェック
-export ZSH_CONFIG_DIR=$HOME/.zsh
+ZSH_CONFIG_DIR=$HOME/.zsh
 
 if [ ! -e $ZSH_CONFIG_DIR ]; then
 	mkdir $ZSH_CONFIG_DIR
+fi
+
+# Mac環境でのpath_helperの優先順位の変更
+if [ -x /usr/libexec/path_helper ]; then
+    PATH=''
+    eval `/usr/libexec/path_helper -s`
 fi
 
 # 言語環境
