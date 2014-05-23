@@ -42,3 +42,17 @@
 (custom-set-variables '(helm-ff-auto-update-initial-value nil))
 ; TABで補完できるようにする。
 ; (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+
+; scss-mode
+(require 'scss-mode)
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+
+(defun scss-custom ()
+  "scss-mode-hook"
+  (and
+   (set (make-local-variable 'css-indent-offset) 2)
+   (set (make-local-variable 'scss-compile-at-save) nil)
+   )
+  )
+(add-hook 'scss-mode-hook
+  '(lambda() (scss-custom)))
