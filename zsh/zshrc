@@ -163,6 +163,9 @@ if [ -e $HOME/.pyenv ]; then
 	eval "$(pyenv init -)"
 fi
 
+## nodebrewの設定
+PATH=$HOME/.nodebrew/current/bin:$PATH
+
 ## Caskの設定
 # PATHへの追加
 if [ -e $HOME/.cask ]; then
