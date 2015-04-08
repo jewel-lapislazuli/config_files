@@ -103,6 +103,7 @@ alias la="ls -a"
 alias ll="ls -l"
 alias rr="rm -rf"
 alias emacs="emacs -nw"
+alias grep="grep -n --binary-files=without-match --color=auto"
 
 # Ctrl-^ で cd .. する
 function cdup(){
@@ -120,30 +121,14 @@ function gitpull-r(){
         return
     fi
 
-    cdir=`pwd`
-    
     destdir=`ruby -e 'puts File.expand_path("#{ARGV[0]}")' $1`
 
     for gitdir in `find $destdir -name ".git" | sed -e s/\.git$//g`
     do  
         echo "== git pull results [$gitdir] =="
-        cd $gitdir
-        git pull
+        git -C $gitdir pull
     done
-
-    cd $cdir
 }
-
-## grepの設定
-# grepオプションの定義
-export GREP_OPTIONS=""
-# 何行目にマッチしたか表示
-GREP_OPTIONS="-n $GREP_OPTIONS"
-# バイナリファイルにはマッチさせない
-GREP_OPTIONS="--binary-files=without-match $GREP_OPTIONS"
-# マッチした文字に色をつける
-GREP_OPTIONS="--color=auto $GREP_OPTIONS"
-
 
 ## プログラミング言語関連の設定
 # Perlのロケールの警告を表示させないようにする
