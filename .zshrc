@@ -104,6 +104,7 @@ alias ll="ls -l"
 alias rr="rm -rf"
 alias emacs="emacs -nw"
 alias grep="grep -n --binary-files=without-match --color=auto"
+alias ag="ag --path-to-agignore=~/.agignore"
 
 # Ctrl-^ で cd .. する
 function cdup(){
@@ -141,15 +142,16 @@ if [ -e $HOME/.rbenv ]; then
 	eval "$(rbenv init -)"
 fi
 
-## pyenvの設定
-# 初期化
-if [ -e $HOME/.pyenv ]; then
-	PATH=$HOME/.pyenv/bin:$PATH
-	eval "$(pyenv init -)"
+## goenvの設定
+if [ -e $HOME/.goenv ]; then
+	PATH=$HOME/.goenv/bin:$PATH
+	eval "$(goenv init -)"
 fi
 
 ## nodebrewの設定
-PATH=$HOME/.nodebrew/current/bin:$PATH
+if [ -e $HOME/.nodebrew ]; then
+	PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
 
 ## Caskの設定
 # PATHへの追加
